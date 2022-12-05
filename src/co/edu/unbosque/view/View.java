@@ -4,14 +4,14 @@ import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
-public class view {
+public class View {
 	
 	private int select;
 	
 	
 	
 	
-	public view() {
+	public View() {
 	
 		select=-1;
 		
