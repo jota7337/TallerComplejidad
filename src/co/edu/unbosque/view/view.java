@@ -1,9 +1,21 @@
 package co.edu.unbosque.view;
 
+import java.util.Scanner;
+
 import javax.swing.JOptionPane;
 
 public class view {
 	
+	private int select;
+	
+	
+	
+	
+	public view() {
+	
+		select=-1;
+		
+	}
 	
 	public  int leerDato(String mensaje) {
 		int respuesta=0;
@@ -36,10 +48,40 @@ public class view {
 		JOptionPane.showMessageDialog(null, mensaje);
 	}
 	
-	public String leerDato2(String instruccion) {
+	public String leerDatoString(String instruccion) {
 		String respuesta = "";
 		respuesta = JOptionPane.showInputDialog(instruccion);
 		return respuesta;
 	}
+	
+	public int leerDatoMenu() {
+		int respuesta =0;
+		try {
+	
+		String mensaje = JOptionPane.showInputDialog("Digite que ejercicio quiere hacer:"
+				+"\n1. Nutricionista"
+				+"\n2. Solitario continental"
+				+"\n3. Salto liebre"
+				
+			
+				+"\n0. Salir");
+		respuesta = Integer.parseInt(mensaje);
+	
+		}catch (Exception e){
+			JOptionPane.showMessageDialog(null, "Digite de nuevo una opcion valida");
+			respuesta=leerDatoMenu();
+		
+			
+			
+		}
+		return respuesta;
+		
+	}
+	public int getSelect() {
+		return select;
+	}
 
+	public void setSelect(int select) {
+		this.select = select;
+	}
 }
