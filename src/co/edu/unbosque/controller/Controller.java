@@ -1,12 +1,15 @@
 package co.edu.unbosque.controller;
 
+import co.edu.unbosque.model.Model;
 import co.edu.unbosque.view.View;
 
 public class Controller {
 	private View vista;
+	private Model modelo;
 	
 	
 	public Controller() {
+		
 		vista= new View();
 		
 		funcionar();
@@ -33,6 +36,11 @@ public class Controller {
 			case 2:
 			
 			
+				break;  
+				
+			case 3:
+				
+				
 				break;  
 		
 	
