@@ -77,9 +77,10 @@ public class SaltoLiebre {
 			z = tablero.posicionLiebre(x, y);
 
 			if (casillalibre(actual)) {
+				System.out.println("entra al if");
 				camino.add(z);
 				actual.setLiebrepasado(true);
-
+                 ramaYpoda(tablero, actual, camino, p, q, antes, saber);    
 				actual.setLiebrepasado(false);
 				camino.remove(z);
 
@@ -88,8 +89,8 @@ public class SaltoLiebre {
 		}
 	}
 
-	public void siguienteMovimiento(int f, int c, int iff, int ic, int ff, int fc, int p, int q) {
-		Liebre[][] campo = new Liebre[f][c];
+	public String siguienteMovimiento(int f, int c, int iff, int ic, int ff, int fc, int p, int q) {
+		Liebre[][] campo = new Liebre[f + 2][c + 2];
 
 		for (int i = 1; i < (campo.length - 1); i++) {
 			for (int j = 1; j < (campo.length - 1); j++) {
@@ -103,10 +104,13 @@ public class SaltoLiebre {
 		campo[ff][fc].setTermino(true);
 		
 		ArrayList<Liebre> camino =new ArrayList<>();
+		int  pCamino =p;
+		int qCaminos=q;
+		int anterior = 0;
 		Tablero trayectoria=new Tablero(campo);
 		camino.add(campo[iff][ic]);
-		
-		ramaYpoda(trayectoria, campo[iff][ic], camino, p, q, 0, "q");
+		ramaYpoda(trayectoria, campo[iff][ic], camino, pCamino, qCaminos, anterior, "q");
+		return trayectoria.mostrarCaminos();
 		
 	}
 }

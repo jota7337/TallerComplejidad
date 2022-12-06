@@ -19,9 +19,9 @@ public class Tablero {
 		this.camino = camino;
 	}
 	public Tablero(Liebre[][] campoliebre) {
-		super();
+	
 		this.campoliebre = campoliebre;
-		this.camino = camino;
+	     camino = new ArrayList<>();
 	}
 	private boolean limitartableto(int x, int y) {
 		
@@ -42,6 +42,17 @@ public class Tablero {
 	
 		
 	}
+	
+	public String mostrarCaminos() {
+		String camino1 = "";
+		camino1 += "Minimo de saltos: " + (camino.size() - 1);
+		for (Liebre c : camino) {
+			camino1 += "\n" + c;
+		}
+		return camino1;
+
+	}
+
 
 	
 
