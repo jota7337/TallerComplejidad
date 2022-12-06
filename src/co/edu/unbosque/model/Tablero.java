@@ -26,7 +26,7 @@ public class Tablero {
 		this.campoliebre = campoliebre;
 	     camino = new ArrayList<>();
 	}
-	private boolean limitartableto(int x, int y) {
+	public boolean limitartableto(int x, int y) {
 		
 		return (x > 0 && x < (campoliebre.length - 1)) && (y > 0 && y < (campoliebre[0].length-1));
 	}

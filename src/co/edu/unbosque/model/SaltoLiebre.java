@@ -4,11 +4,9 @@ import java.util.ArrayList;
 
 public class SaltoLiebre {
 
-	public SaltoLiebre() {
-
-	}
-
 	private String[][] campo1;
+	
+	public SaltoLiebre() {}
 
 	public String[][] rellenarMatriz(int f, int c, int ic, int iff, int fc, int ff) {
 

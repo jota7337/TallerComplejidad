@@ -18,7 +18,6 @@ public class Model {
 		for (int i = 1; i < (matrix.length - 1); i++) {
 			for (int j = 1; j < (matrix.length - 1); j++) {
 				builder.append("[" + matrix[i][j] + "]");
-
 			}
 			builder.append("\n");
 		}
