@@ -1,48 +1,32 @@
 package co.edu.unbosque.model;
-import java.util.Scanner;
 
 public class SolitarioChino {
 
 //	private String[][] tableroInicial = new String[7][7];
 //	private String[][] tablero = new String[7][7];
+
 	private int m =37;
 	private int n=7;
 	Scanner sc = new Scanner(System.in);
+
 	
-	int movimientosMaximos=37;
+	private int movimientosMaximos=37;
 
-	public SolitarioChino() {
-
-		funcionar();
+	public SolitarioChino() {}
+	
+	
+	public void valido(int i, int j, int movimiento, int[] tablero, boolean e) {
 		
-
-	}
-
-	public void funcionar() {
-
-		crearTablero();
-		System.out.println("Seleccione la fila donde desea colocar la ficha");
-		int fila = sc.nextInt();
-
-		System.out.println("Seleccione la columna donde desea colocar la ficha");
-		int columna = sc.nextInt();
-
-		if ((fila == 0 || fila == 1 || fila == 5 || fila == 6)
-				&& (columna == 0 || columna == 1 || columna == 5 || columna == 6)) {
-			System.out.println("No puede ingresar una ficha en dicha casilla");
-			funcionar();
-
-		} else {
-
-			imprimirTablero(posicionarFicha(fila, columna));
-			
-		}
-
+		
+		
+		
 	}
 	
+	
+	
+	
+
 	public void solucion(String[][] tablero) {
-		
-		
 		
 	}
 
@@ -69,15 +53,13 @@ public class SolitarioChino {
 			tablero[6][p] = "   ";
 		}
 
-		System.out.println("El tablero inicial es: ");
-		imprimirTablero(tablero);
-
 		return tablero;
 	}
 
 	public String[][] posicionarFicha(int fila, int columna) {
 		String[][] tablero = new String[7][7];
 		tablero = crearTablero();
+
 
 		tablero[fila][columna] = "libre";
 		return tablero;
@@ -210,5 +192,6 @@ public class SolitarioChino {
 	}
 	
 	
+
 
 }
