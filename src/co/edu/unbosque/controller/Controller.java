@@ -34,16 +34,15 @@ public class Controller {
 				String repetir;
 				do {
 					repetir = vista.leerDatoString("Ingresa la cantidad de platos");
-
 				} while (!repetir.matches("^[0-9]+$"));
-
 				int size = Integer.parseInt(repetir);
 				int numeros[] = new int[size];
-				for (int i = 0; i < size; i++) {
-					numeros[i] = vista.leerDato("Ingresa la cantidad de calorias del plato " + (i + 1));
-				}
-
-				int caloriasMinimas = vista.leerDato("Ingresa la cantidad de calorias minimas");
+				for (int i = 0; i < size; i++) 
+					numeros[i] = Math.abs(vista.leerDato("Ingresa la cantidad de calorias del plato " + (i + 1)));
+				int caloriasMinimas;
+				do {
+					caloriasMinimas = Math.abs(vista.leerDato("Ingresa la cantidad de calorias minimas"));
+				}while(caloriasMinimas < 1);
 				vista.mostrarmensaje(modelo.getNutricionista().dp(numeros, caloriasMinimas));
 				break;
 			case 2:
@@ -71,7 +70,13 @@ public class Controller {
 						vista.mostrarmensaje(modelo
 								.leerMatriz(modelo.getSolitario().posicionarFicha(filaSolitario, columnaSolitario)));
 
+						vista.mostrarmensaje(modelo
+								.leerMatriz(modelo.getSolitario().posicionarFicha2(filaSolitario, columnaSolitario)));
+
+						
+						
 					}
+					
 				}
 
 
@@ -101,14 +106,19 @@ public class Controller {
 						ArrayList<String[][]> siguienteMovimiento = modelo.getSaltoLiebre().Solucion(fila, columna, y,
 								x, xfinal, yfinal, caminop, caminoq);
 
+						if (!siguienteMovimiento.isEmpty()) {
+							vista.mostrarmensaje("El total de caminos mas corto fue " + (siguienteMovimiento.size()-1));
 						for (int i = 0; i < siguienteMovimiento.size(); i++) {
 
 							vista.mostrarmensaje("Movimiento Salto Liebre " + (i + 1) + "\n"
 									+ modelo.leerMatrizLiebre(siguienteMovimiento.get(i)));
 
+						}}else {
+							vista.mostrarmensaje("No es posible llegar el destino");
 						}
 					}
 				}
+				vista.mostrarmensaje("Se termino");
 
 				break;
 
