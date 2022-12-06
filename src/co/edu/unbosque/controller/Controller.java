@@ -33,6 +33,7 @@ public class Controller {
 				break;
 			case 2:
 
+				vista.mostrarmensaje("Tablero Inicial\n" + modelo.leerMatriz(modelo.getSolitario().crearTablero()));
 				modelo.getSolitario().crearTablero();
 				int filaSolitario = vista.leerDato("Seleccione la fila donde desea colocar la ficha");
 				int columnaSolitario = vista.leerDato("Seleccione la columna donde desea colocar la ficha");
@@ -44,8 +45,8 @@ public class Controller {
 
 				} else {
 
-					modelo.getSolitario()
-							.imprimirTablero(modelo.getSolitario().posicionarFicha(filaSolitario, columnaSolitario));
+					vista.mostrarmensaje(
+							modelo.leerMatriz(modelo.getSolitario().posicionarFicha(filaSolitario, columnaSolitario)));
 
 				}
 
@@ -74,7 +75,7 @@ public class Controller {
 					for (int i = 0; i < siguienteMovimiento.size(); i++) {
 
 						vista.mostrarmensaje("Movimiento Salto Liebre " + (i + 1) + "\n"
-								+ modelo.leerMatriz(siguienteMovimiento.get(i)));
+								+ modelo.leerMatrizLiebre(siguienteMovimiento.get(i)));
 
 					}
 				}

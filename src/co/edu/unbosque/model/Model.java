@@ -13,10 +13,22 @@ public class Model {
 
 	}
 	
-	public String leerMatriz(String matrix[][]) {
+	public String leerMatrizLiebre(String matrix[][]) {
 		StringBuilder builder = new StringBuilder();
 		for (int i = 1; i < (matrix.length - 1); i++) {
 			for (int j = 1; j < (matrix.length - 1); j++) {
+				builder.append("[" + matrix[i][j] + "]");
+
+			}
+			builder.append("\n");
+		}
+		return builder.toString();
+	}
+	
+	public String leerMatriz(String matrix[][]) {
+		StringBuilder builder = new StringBuilder();
+		for (int i = 0; i < (matrix.length); i++) {
+			for (int j = 0; j < (matrix.length); j++) {
 				builder.append("[" + matrix[i][j] + "]");
 
 			}

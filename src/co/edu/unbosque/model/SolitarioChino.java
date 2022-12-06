@@ -18,23 +18,6 @@ public class SolitarioChino {
 
 	public void funcionar() {
 
-		crearTablero();
-		System.out.println("Seleccione la fila donde desea colocar la ficha");
-		int fila = sc.nextInt();
-
-		System.out.println("Seleccione la columna donde desea colocar la ficha");
-		int columna = sc.nextInt();
-
-		if ((fila == 0 || fila == 1 || fila == 5 || fila == 6)
-				&& (columna == 0 || columna == 1 || columna == 5 || columna == 6)) {
-			System.out.println("No puede ingresar una ficha en dicha casilla");
-			funcionar();
-
-		} else {
-
-			imprimirTablero(posicionarFicha(fila, columna));
-			
-		}
 
 	}
 	
@@ -67,9 +50,6 @@ public class SolitarioChino {
 			tablero[6][p] = "   ";
 		}
 
-		System.out.println("El tablero inicial es: ");
-		imprimirTablero(tablero);
-
 		return tablero;
 	}
 
@@ -81,15 +61,5 @@ public class SolitarioChino {
 		return tablero;
 	}
 
-	public void imprimirTablero(String[][] tablero) {
-		for (int i = 0; i < tablero.length; i++) {
-			for (int j = 0; j < tablero.length; j++) {
-
-				System.out.print(tablero[i][j] + " | ");
-			}
-			System.out.println();
-		}
-
-	}
 
 }
