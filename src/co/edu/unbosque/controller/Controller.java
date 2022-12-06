@@ -28,6 +28,20 @@ public class Controller {
 			switch (vista.getSelect()) {
 			case 1:
 
+				String repetir;
+				do {
+					repetir = vista.leerDatoString("Ingresa la cantidad de platos");
+
+				} while (!repetir.matches("^[0-9]+$"));
+
+				int size = Integer.parseInt(repetir);
+				int numeros[] = new int[size];
+				for (int i = 0; i < size; i++) {
+					numeros[i] = vista.leerDato("Ingresa la cantidad de calorias del plato " + (i + 1));
+				}
+
+				int caloriasMinimas = vista.leerDato("Ingresa la cantidad de calorias minimas");
+				vista.mostrarmensaje(modelo.getNutricionista().dp(numeros, caloriasMinimas));
 				break;
 			case 2:
 
@@ -37,15 +51,16 @@ public class Controller {
 				int columnaSolitario = vista.leerDato("Seleccione la columna donde desea el espacio vacio");
 
 				if (filaSolitario < 0 || columnaSolitario < 0 || filaSolitario > 6 || columnaSolitario > 6) {
-					
+
 					vista.mostrarmensaje("El espacio vacio debe encontrarse en las dimensiones del tablero");
-					
+
 				} else {
 
 					if ((filaSolitario == 0 || filaSolitario == 1 || filaSolitario == 5 || filaSolitario == 6)
 							&& (columnaSolitario == 0 || columnaSolitario == 1 || columnaSolitario == 5
 									|| columnaSolitario == 6)) {
-						vista.mostrarmensaje("No puede ingresar un espacio en blanco en dicha casilla\n" + "Tenga en cuenta las caracteristicas del tablero");
+						vista.mostrarmensaje("No puede ingresar un espacio en blanco en dicha casilla\n"
+								+ "Tenga en cuenta las caracteristicas del tablero");
 
 					} else {
 
