@@ -36,10 +36,11 @@ public class Liebre {
 		return "Liebre [x=" + x + ", y=" + y + "]";
 	}
 	public Liebre(int x, int y) {
-		super();
+	
 		this.x = x;
-		
 		this.y = y;
+		this.liebrepasado=false;
+		this.termino=false;
 		
 	}
 

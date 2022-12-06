@@ -6,18 +6,22 @@ public class Tablero {
 	
 	private Liebre[][] campoliebre;
 	private ArrayList<Liebre> camino;
+	
 	public Liebre[][] getCampoliebre() {
 		return campoliebre;
 	}
+	
 	public void setCampoliebre(Liebre[][] campoliebre) {
 		this.campoliebre = campoliebre;
 	}
+	
 	public ArrayList<Liebre> getCamino() {
 		return camino;
 	}
 	public void setCamino(ArrayList<Liebre> camino) {
 		this.camino = camino;
 	}
+	
 	public Tablero(Liebre[][] campoliebre) {
 	
 		this.campoliebre = campoliebre;
@@ -25,7 +29,7 @@ public class Tablero {
 	}
 	private boolean limitartableto(int x, int y) {
 		
-		return (x > 0 &&x< (campoliebre.length - 1)) &(y>0&&y<(campoliebre[0].length-1));
+		return (x > 0 &&x< (campoliebre.length - 1)) &&(y>0&&y<(campoliebre[0].length-1));
 	}
 	
 	public Liebre posicionLiebre(int x ,int y) {

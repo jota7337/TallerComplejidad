@@ -3,6 +3,10 @@ package co.edu.unbosque.model;
 import java.util.ArrayList;
 
 public class SaltoLiebre {
+	
+	public SaltoLiebre() {
+		
+	}
 
 	private String[][] campo;
 
@@ -43,7 +47,7 @@ public class SaltoLiebre {
 			if (p != 0 && direcion.equals("q")) {
 				p--;
 				int[][] descripcion = { { -1, 0 }, { 0, 1 }, { 1, 0 }, { 0, -1 } };
-				caminoPosibles(tablero, actual, camino, p, q, antes, direcion, descripcion);
+				caminoPosibles(tablero, actual, camino, p, q, antes, "p", descripcion);
 
 			}
 
@@ -52,11 +56,11 @@ public class SaltoLiebre {
 				if (antes == 0 || antes == 2) {
 
 					int[][] descripcion = { { 0, 1 }, { 0, -1 } };
-					caminoPosibles(tablero, actual, camino, p, q, antes, direcion, descripcion);
+					caminoPosibles(tablero, actual, camino, p, q, antes, "q", descripcion);
 				} else {
 
 					int[][] descripcion = { { -1, 0 }, { 1, 0 } };
-					caminoPosibles(tablero, actual, camino, p, q, antes, direcion, descripcion);
+					caminoPosibles(tablero, actual, camino, p, q, antes, "q", descripcion);
 
 				}
 			}
