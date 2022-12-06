@@ -5,16 +5,19 @@ import java.util.ArrayList;
 import co.edu.unbosque.model.Liebre;
 import co.edu.unbosque.model.Model;
 import co.edu.unbosque.model.SaltoLiebre;
+import co.edu.unbosque.model.SolitarioChino;
 import co.edu.unbosque.view.View;
 
 public class Controller {
 	private View vista;
 	private Model modelo;
 
+
 	public Controller() {
 
 		vista = new View();
 		modelo = new Model();
+
 
 		funcionar();
 	}
@@ -45,6 +48,7 @@ public class Controller {
 				break;
 			case 2:
 
+
 				vista.mostrarmensaje("Tablero Inicial\n" + modelo.leerMatriz(modelo.getSolitario().crearTablero()));
 				modelo.getSolitario().crearTablero();
 				int filaSolitario = vista.leerDato("Seleccione la fila donde desea colocar el espacio vacio");
@@ -69,6 +73,7 @@ public class Controller {
 
 					}
 				}
+
 
 				break;
 

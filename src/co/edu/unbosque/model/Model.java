@@ -1,6 +1,11 @@
 package co.edu.unbosque.model;
 
+
+
+import java.util.ArrayList;
 import java.util.Arrays;
+
+
 
 public class Model {
 	private SaltoLiebre saltoLiebre;
