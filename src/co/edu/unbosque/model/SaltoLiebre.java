@@ -8,27 +8,27 @@ public class SaltoLiebre {
 
 	}
 
-//	private String[][] campo1;
-//	
-//
-//	public String[][] rellenarMatriz(int f, int c, int ic, int iff, int fc, int ff) {
-//
-//		campo1 = new String[f][c];
-//
-//		for (int i = 0; i < campo1.length; i++) {
-//			for (int j = 0; j < campo1.length; j++) {
-//
-//				campo1[i][j] = "0";
-//
-//			}
-//
-//			campo1[ic][iff] = "liebre";
-//			campo1[fc][ff] = "Destino";
-//
-//		}
-//
-//		return campo1;
-//	}
+	private String[][] campo1;
+	
+
+	public String[][] rellenarMatriz(int f, int c, int ic, int iff, int fc, int ff) {
+
+		campo1 = new String[f][c];
+
+		for (int i = 0; i < campo1.length; i++) {
+			for (int j = 0; j < campo1.length; j++) {
+
+				campo1[i][j] = "X";
+
+			}
+
+			campo1[ic][iff] = "L";
+			campo1[fc][ff] = "D";
+
+		}
+
+		return campo1;
+	}
 
 	public boolean casillalibre(Liebre c, Liebre z) {
 
@@ -94,8 +94,10 @@ public class SaltoLiebre {
 		}
 	}
 
-	public String siguienteMovimiento(int f, int c, int libreiniciof, int libreinicioc, int librefinalf,
-			int librefinalc, int p, int q) {
+
+	public ArrayList<Liebre> siguienteMovimiento(int f, int c, int libreiniciof, int libreinicioc, int librefinalf, int librefinalc, int p, int q) {
+
+
 		Liebre[][] campo = new Liebre[f + 2][c + 2];
 
 		for (int i = 1; i < (campo.length - 1); i++) {
@@ -117,7 +119,9 @@ public class SaltoLiebre {
 		camino.add(campo[libreiniciof][libreinicioc]);
 
 		ramaYpoda(trayectoria, campo[libreiniciof][libreinicioc], camino, pCamino, qCaminos, anterior, "q");
-		return trayectoria.mostrarCaminos();
+
+		return trayectoria.getCamino();
+		
 
 	}
 }
