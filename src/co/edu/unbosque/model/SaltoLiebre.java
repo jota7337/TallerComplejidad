@@ -9,7 +9,6 @@ public class SaltoLiebre {
 	}
 
 	private String[][] campo1;
-	
 
 	public String[][] rellenarMatriz(int f, int c, int ic, int iff, int fc, int ff) {
 
@@ -94,34 +93,38 @@ public class SaltoLiebre {
 		}
 	}
 
-
-	public ArrayList<Liebre> siguienteMovimiento(int f, int c, int libreiniciof, int libreinicioc, int librefinalf, int librefinalc, int p, int q) {
-
-
+	public ArrayList<Liebre> siguienteMovimiento(int f, int c, int libreiniciof, int libreinicioc, int librefinalf,
+			int librefinalc, int p, int q) {
 		Liebre[][] campo = new Liebre[f + 2][c + 2];
 
 		for (int i = 1; i < (campo.length - 1); i++) {
 			for (int j = 1; j < (campo.length - 1); j++) {
-
 				campo[i][j] = new Liebre(i, j);
-
 			}
-
 		}
 
 		campo[librefinalf][librefinalc].setTermino(true);
-
 		ArrayList<Liebre> camino = new ArrayList<>();
 		int pCamino = p;
 		int qCaminos = q;
 		int anterior = 0;
 		Tablero trayectoria = new Tablero(campo);
 		camino.add(campo[libreiniciof][libreinicioc]);
-
 		ramaYpoda(trayectoria, campo[libreiniciof][libreinicioc], camino, pCamino, qCaminos, anterior, "q");
-
 		return trayectoria.getCamino();
-		
+
+	}
+	
+	public ArrayList<String[][]> Solucion(int f, int c, int libreiniciof, int libreinicioc, int librefinalf,
+			int librefinalc, int p, int q) {
+		ArrayList<Liebre> lp = siguienteMovimiento(f, c, libreiniciof, libreinicioc, librefinalf, librefinalc, p, q);
+		ArrayList<String[][]> camino = new ArrayList<String[][]>();
+		for (int i = 0; i < lp.size(); i++) {
+			camino.add(rellenarMatriz(f + 2, c + 2, lp.get(i).getX(), lp.get(i).getY(), librefinalf, librefinalc));
+
+		}
+
+		return camino;
 
 	}
 }
