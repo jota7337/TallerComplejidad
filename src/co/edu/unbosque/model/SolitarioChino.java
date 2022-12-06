@@ -1,29 +1,27 @@
 package co.edu.unbosque.model;
-import java.util.Scanner;
 
 public class SolitarioChino {
 
 //	private String[][] tableroInicial = new String[7][7];
 //	private String[][] tablero = new String[7][7];
-	Scanner sc = new Scanner(System.in);
 	
 	int movimientosMaximos=37;
 
-	public SolitarioChino() {
-
-		funcionar();
+	public SolitarioChino() {}
+	
+	
+	public void valido(int i, int j, int movimiento, int[] tablero, boolean e) {
 		
-
-	}
-
-	public void funcionar() {
-
-
+		
+		
+		
 	}
 	
+	
+	
+	
+
 	public void solucion(String[][] tablero) {
-		
-		
 		
 	}
 
@@ -56,7 +54,6 @@ public class SolitarioChino {
 	public String[][] posicionarFicha(int fila, int columna) {
 		String[][] tablero = new String[7][7];
 		tablero = crearTablero();
-
 		tablero[fila][columna] = " F ";
 		return tablero;
 	}

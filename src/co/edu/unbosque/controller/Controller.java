@@ -35,27 +35,34 @@ public class Controller {
 
 				vista.mostrarmensaje("Tablero Inicial\n" + modelo.leerMatriz(modelo.getSolitario().crearTablero()));
 				modelo.getSolitario().crearTablero();
-				int filaSolitario = vista.leerDato("Seleccione la fila donde desea colocar la ficha");
-				int columnaSolitario = vista.leerDato("Seleccione la columna donde desea colocar la ficha");
+				int filaSolitario = vista.leerDato("Seleccione la fila donde desea colocar el espacio vacio");
+				int columnaSolitario = vista.leerDato("Seleccione la columna donde desea el espacio vacio");
 
-				if ((filaSolitario == 0 || filaSolitario == 1 || filaSolitario == 5 || filaSolitario == 6)
-						&& (columnaSolitario == 0 || columnaSolitario == 1 || columnaSolitario == 5
-								|| columnaSolitario == 6)) {
-					vista.mostrarmensaje("No puede ingresar una ficha en dicha casilla");
-
+				if (filaSolitario < 0 || columnaSolitario < 0 || filaSolitario > 6 || columnaSolitario > 6) {
+					
+					vista.mostrarmensaje("El espacio vacio debe encontrarse en las dimensiones del tablero");
+					
 				} else {
 
-					vista.mostrarmensaje(
-							modelo.leerMatriz(modelo.getSolitario().posicionarFicha(filaSolitario, columnaSolitario)));
+					if ((filaSolitario == 0 || filaSolitario == 1 || filaSolitario == 5 || filaSolitario == 6)
+							&& (columnaSolitario == 0 || columnaSolitario == 1 || columnaSolitario == 5
+									|| columnaSolitario == 6)) {
+						vista.mostrarmensaje("No puede ingresar un espacio en blanco en dicha casilla\n" + "Tenga en cuenta las caracteristicas del tablero");
 
+					} else {
+
+						vista.mostrarmensaje(modelo
+								.leerMatriz(modelo.getSolitario().posicionarFicha(filaSolitario, columnaSolitario)));
+
+					}
 				}
 
 				break;
 
 			case 3:
 
-				int fila = vista.leerDato("Digite el tamaño de las filas");
-				int columna = vista.leerDato("Digite el tamaño de las columnas");
+				int fila = vista.leerDato("Digite el número de las filas");
+				int columna = vista.leerDato("Digite el número de las columnas");
 				int x = vista.leerDato("Digite el X inicial");
 				int y = vista.leerDato(" Digite el Y inicial");
 				int xfinal = vista.leerDato("Digite el X final");
@@ -63,20 +70,25 @@ public class Controller {
 				int caminop = vista.leerDato("Digite el p");
 				int caminoq = vista.leerDato("Digite el q");
 
-				if (fila < 0 || columna < 0 || x < 0 || y < 0 || xfinal < 0 || yfinal < 0 || caminop < 0
-						|| caminoq < 0) {
-
-					vista.mostrarmensaje("Debe ingresar un número valido para cada uno de los campos");
+				if (xfinal > fila || yfinal > columna || x > fila || y > fila) {
+					vista.mostrarmensaje(
+							"Ni el origne ni el destino pueden tener valores mayores a la dimensión del tablero");
 				} else {
+					if (fila < 0 || columna < 0 || x < 0 || y < 0 || xfinal < 0 || yfinal < 0 || caminop < 0
+							|| caminoq < 0) {
 
-					ArrayList<String[][]> siguienteMovimiento = modelo.getSaltoLiebre().Solucion(fila, columna, y, x,
-							xfinal, yfinal, caminop, caminoq);
+						vista.mostrarmensaje("Debe ingresar un número valido para cada uno de los campos");
+					} else {
 
-					for (int i = 0; i < siguienteMovimiento.size(); i++) {
+						ArrayList<String[][]> siguienteMovimiento = modelo.getSaltoLiebre().Solucion(fila, columna, y,
+								x, xfinal, yfinal, caminop, caminoq);
 
-						vista.mostrarmensaje("Movimiento Salto Liebre " + (i + 1) + "\n"
-								+ modelo.leerMatrizLiebre(siguienteMovimiento.get(i)));
+						for (int i = 0; i < siguienteMovimiento.size(); i++) {
 
+							vista.mostrarmensaje("Movimiento Salto Liebre " + (i + 1) + "\n"
+									+ modelo.leerMatrizLiebre(siguienteMovimiento.get(i)));
+
+						}
 					}
 				}
 
