@@ -33,7 +33,7 @@ public class Controller {
 			case 1:
 				
 	
-				String siguienteMovimiento = liebre.siguienteMovimiento(4, 4, 1, 1, 3, 2, 4, 4);
+				String siguienteMovimiento = liebre.siguienteMovimiento(8, 8, 4, 4, 6, 1, 4, 4);
 				
 				System.out.println(""+ siguienteMovimiento);
 				
