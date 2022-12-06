@@ -4,9 +4,19 @@ import java.util.ArrayList;
 
 public class SaltoLiebre {
 
+	private Liebre liebre;
+	private Tablero tablero;
 	private String[][] campo1;
-	
-	public SaltoLiebre() {}
+
+	public SaltoLiebre() {
+	}
+
+	public SaltoLiebre(Liebre liebre, Tablero tablero, String[][] campo1) {
+		super();
+		this.liebre = liebre;
+		this.tablero = tablero;
+		this.campo1 = campo1;
+	}
 
 	public String[][] rellenarMatriz(int f, int c, int ic, int iff, int fc, int ff) {
 
@@ -112,7 +122,7 @@ public class SaltoLiebre {
 		return trayectoria.getCamino();
 
 	}
-	
+
 	public ArrayList<String[][]> Solucion(int f, int c, int libreiniciof, int libreinicioc, int librefinalf,
 			int librefinalc, int p, int q) {
 		ArrayList<Liebre> lp = siguienteMovimiento(f, c, libreiniciof, libreinicioc, librefinalf, librefinalc, p, q);
@@ -125,4 +135,29 @@ public class SaltoLiebre {
 		return camino;
 
 	}
+
+	public Liebre getLiebre() {
+		return liebre;
+	}
+
+	public void setLiebre(Liebre liebre) {
+		this.liebre = liebre;
+	}
+
+	public Tablero getTablero() {
+		return tablero;
+	}
+
+	public void setTablero(Tablero tablero) {
+		this.tablero = tablero;
+	}
+
+	public String[][] getCampo1() {
+		return campo1;
+	}
+
+	public void setCampo1(String[][] campo1) {
+		this.campo1 = campo1;
+	}
+
 }

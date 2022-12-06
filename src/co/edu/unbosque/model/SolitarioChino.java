@@ -5,7 +5,7 @@ public class SolitarioChino {
 //	private String[][] tableroInicial = new String[7][7];
 //	private String[][] tablero = new String[7][7];
 	
-	int movimientosMaximos=37;
+	private int movimientosMaximos=37;
 
 	public SolitarioChino() {}
 	

@@ -8,9 +8,7 @@ public class View {
 	
 	private int select;
 	
-	
-	
-	
+
 	public View() {
 	
 		select=-1;

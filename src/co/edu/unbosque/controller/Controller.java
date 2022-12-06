@@ -10,13 +10,11 @@ import co.edu.unbosque.view.View;
 public class Controller {
 	private View vista;
 	private Model modelo;
-	private SaltoLiebre liebre;
 
 	public Controller() {
 
 		vista = new View();
 		modelo = new Model();
-		liebre = new SaltoLiebre();
 
 		funcionar();
 	}
