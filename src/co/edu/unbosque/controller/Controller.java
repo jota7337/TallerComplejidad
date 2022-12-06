@@ -43,7 +43,7 @@ public class Controller {
 				do {
 					caloriasMinimas = Math.abs(vista.leerDato("Ingresa la cantidad de calorias minimas"));
 				}while(caloriasMinimas < 1);
-				vista.mostrarmensaje(modelo.getNutricionista().dp(numeros, caloriasMinimas));
+				vista.mostrarmensaje(modelo.getNutricionista().optimoMenu(numeros, caloriasMinimas));
 				break;
 			case 2:
 
@@ -110,7 +110,7 @@ public class Controller {
 							vista.mostrarmensaje("El total de caminos mas corto fue " + (siguienteMovimiento.size()-1));
 						for (int i = 0; i < siguienteMovimiento.size(); i++) {
 
-							vista.mostrarmensaje("Movimiento Salto Liebre " + (i + 1) + "\n"
+							vista.mostrarmensaje("Movimiento Salto Liebre " + (i) + "\n"
 									+ modelo.leerMatrizLiebre(siguienteMovimiento.get(i)));
 
 						}}else {
