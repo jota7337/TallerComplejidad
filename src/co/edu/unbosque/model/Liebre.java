@@ -30,6 +30,11 @@ public class Liebre {
 	public void setLiebrepasado(boolean liebrepasado) {
 		this.liebrepasado = liebrepasado;
 	}
+	
+	@Override
+	public String toString() {
+		return "Liebre [x=" + x + ", y=" + y + "]";
+	}
 	public Liebre(int x, int y) {
 		super();
 		this.x = x;
