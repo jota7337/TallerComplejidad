@@ -5,18 +5,20 @@ import java.util.ArrayList;
 import co.edu.unbosque.model.Liebre;
 import co.edu.unbosque.model.Model;
 import co.edu.unbosque.model.SaltoLiebre;
+import co.edu.unbosque.model.SolitarioChino;
 import co.edu.unbosque.view.View;
 
 public class Controller {
 	private View vista;
 	private Model modelo;
-	private SaltoLiebre liebre;
+	private SolitarioChino s;
 
 	public Controller() {
 
 		vista = new View();
 		modelo = new Model();
-		liebre = new SaltoLiebre();
+		s =new SolitarioChino();
+	
 
 		funcionar();
 	}
@@ -32,7 +34,8 @@ public class Controller {
 
 				break;
 			case 2:
-
+        
+				
 				break;
 
 			case 3:
