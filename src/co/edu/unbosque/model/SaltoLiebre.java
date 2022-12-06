@@ -3,9 +3,9 @@ package co.edu.unbosque.model;
 import java.util.ArrayList;
 
 public class SaltoLiebre {
-	
+
 	public SaltoLiebre() {
-		
+
 	}
 
 	private String[][] campo1;
@@ -30,7 +30,7 @@ public class SaltoLiebre {
 		return campo1;
 	}
 
-	public boolean casillalibre(Liebre c,Liebre z) {
+	public boolean casillalibre(Liebre c, Liebre z) {
 
 		if (z != null && !z.isLiebrepasado()) {
 			return true;
@@ -81,11 +81,11 @@ public class SaltoLiebre {
 			y = actual.getY() + salto[i][1];
 			z = tablero.posicionLiebre(x, y);
 
-			if (casillalibre(actual,z)) {
-			
+			if (casillalibre(actual, z)) {
+
 				camino.add(z);
 				actual.setLiebrepasado(true);
-                ramaYpoda(tablero, z, camino, p, q, i, saber);    
+				ramaYpoda(tablero, z, camino, p, q, i, saber);
 				actual.setLiebrepasado(false);
 				camino.remove(z);
 
@@ -94,29 +94,34 @@ public class SaltoLiebre {
 		}
 	}
 
+
 	public ArrayList<Liebre> siguienteMovimiento(int f, int c, int libreiniciof, int libreinicioc, int librefinalf, int librefinalc, int p, int q) {
+
+
 		Liebre[][] campo = new Liebre[f + 2][c + 2];
 
 		for (int i = 1; i < (campo.length - 1); i++) {
 			for (int j = 1; j < (campo.length - 1); j++) {
 
-				campo[i][j] = new Liebre(i,j);
+				campo[i][j] = new Liebre(i, j);
 
 			}
 
 		}
 
 		campo[librefinalf][librefinalc].setTermino(true);
-		
-		ArrayList<Liebre> camino =new ArrayList<>();
-		int  pCamino =p;
-		int qCaminos=q;
+
+		ArrayList<Liebre> camino = new ArrayList<>();
+		int pCamino = p;
+		int qCaminos = q;
 		int anterior = 0;
-		Tablero trayectoria=new Tablero(campo);
+		Tablero trayectoria = new Tablero(campo);
 		camino.add(campo[libreiniciof][libreinicioc]);
-		
+
 		ramaYpoda(trayectoria, campo[libreiniciof][libreinicioc], camino, pCamino, qCaminos, anterior, "q");
+
 		return trayectoria.getCamino();
 		
+
 	}
 }

@@ -1,7 +1,7 @@
 package co.edu.unbosque.model;
 import java.util.Scanner;
 
-public class Punto2 {
+public class SolitarioChino {
 
 //	private String[][] tableroInicial = new String[7][7];
 //	private String[][] tablero = new String[7][7];
@@ -9,7 +9,7 @@ public class Punto2 {
 	
 	int movimientosMaximos=37;
 
-	public Punto2() {
+	public SolitarioChino() {
 
 		funcionar();
 		
@@ -39,10 +39,6 @@ public class Punto2 {
 	}
 	
 	public void solucion(String[][] tablero) {
-		
-		
-		
-		
 		
 		
 		
